@@ -28,15 +28,6 @@ var getLabelText = function () {
         })
     };
 
-/*var isLabelLongerThan = function(isLongerThan){
-    return new Promise(function(resolve){
-        browser.customerServiceLabel.getText().then(function(text){
-            resolve(text.lenght > isLongerThan);
-        })
-    });
-}*/
-//isLabelLongerThan(1).then(console.log)
-
 describe('ContactUs Page Test', function () {
     it('Open Page', function () {
         //browser.waitForAngularEnabled(false); 
@@ -75,16 +66,4 @@ describe('ContactUs Page Test', function () {
     it("Should check if right product is in the cart", function() {
         expect(getLabelText()).toEqual("Faded Short Sleeve T-shirts");
        });
-
-   
-    /*it("should have a title", function(){
-        browser.get(contactUsPage.URL);
-        expect(contactUsPage.customerService.getText()).toEqual('CUSTOMER SERVICE - CONTACT US');
-    });
-    it("should display Subject Heading Dropdown", function(){
-        expect(contactUsPage.subjectHeading.isDisplayed()).toBe(true);
-    });
-    it("should display Send Button", function(){
-        expect(contactUsPage.sendButton.isPresent()).toBe(true);
-    });*/
 });

@@ -28,7 +28,7 @@ var getLabelText = function () {
         })
     };
 
-describe('ContactUs Page Test', function () {
+describe('Should open homepage', function () {
     it('Open Page', function () {
         //browser.waitForAngularEnabled(false); 
         browser.get(homePage.URL);       
@@ -48,9 +48,8 @@ describe('ContactUs Page Test', function () {
         expect(isDescriptionLongerThan(8));
     });
     it("Should check is condition new", function() {
-        
     });
- 
+
     it("Should add product with m size to cart", function() {
         productPage.dropDownMenu.click();
         productPage.mSize.click();

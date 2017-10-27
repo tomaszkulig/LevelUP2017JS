@@ -9,25 +9,6 @@ var productPage = new ProductPage();
 var CartPage = require(pageObjectDir + "/cartPage.js");
 var cartPage = new CartPage();
 
-var until = protractor.ExpectedConditions;
-
-
-var isDescriptionLongerThan = function (givenLength) {
-return new Promise(function (resolve) {
-productPage.description.getText().then(function (text) {
-resolve(text.length > givenLength);
-        });
-    })
-};
-
-var getLabelText = function () {
-    return new Promise(function (resolve) {
-    cartPage.productLabel.getText().then(function (text) {
-    resolve (text);
-            });
-        })
-    };
-
 describe('Should open homepage', function () {
     it('Open Page', function () {
         //browser.waitForAngularEnabled(false); 
@@ -45,9 +26,10 @@ describe('Should open homepage', function () {
         topsPage.sleeveTop.click();
     });
     it("Should check if description has more than 8 characters", function() {
-        expect(isDescriptionLongerThan(8));
+        expect(productPage.isDescriptionLongerThan(8));
     });
     it("Should check is condition new", function() {
+        expect(productPage.getConditionText()).toEqual("New");
     });
 
     it("Should add product with m size to cart", function() {
@@ -63,6 +45,6 @@ describe('Should open homepage', function () {
     });
 
     it("Should check if right product is in the cart", function() {
-        expect(getLabelText()).toEqual("Faded Short Sleeve T-shirts");
+        expect(cartPage.getLabelText()).toEqual("Faded Short Sleeve T-shirts");
        });
 });
